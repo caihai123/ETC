@@ -1,12 +1,12 @@
 <template>
-    <div class="list">
+    <div class="list" @click="playPage">
         <div class="ban">
             <img :src="prop.thumbs.small_thumb"/>
         </div>
         <div class="tex">
             <h4>{{prop.title}}</h4>
             <p>{{prop.description}}</p>
-            <strong>播音：{{prop.podcasters[0].nickname}}</strong>
+            <strong v-if="prop.podcasters.length">播音：{{prop.podcasters[0].nickname}}</strong>
             <div class="sec">
                 <span class="sp1">{{prop.popularity}}次</span>
                 <span class="sp2">{{prop.program_count}}集</span>
@@ -20,10 +20,20 @@
 import rater from "./rater"
     export default {
         name: "list",
+        props:["prop"],
         components:{
             rater
         },
-        props:["prop"]
+        methods:{
+            playPage:function () {
+                this.$router.push({
+                    name:"playPage",
+                    params:{
+                        data:this.prop
+                    }
+                });
+            }
+        }
     }
 </script>
 

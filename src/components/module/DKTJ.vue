@@ -16,7 +16,7 @@
         },
         data:function () {
             return {
-                headline:{title:"小说推荐",list:["搞笑","娱乐","历史","情感"]},
+                headline:{title:"热门小说",list:["搞笑","娱乐","历史","情感"]},
                 items:[],
                 fragment:{
                     Start:0,

@@ -6,11 +6,11 @@
             <slider :prop="slideshow"></slider>
             <subiject></subiject>
             <Nav></Nav>
-            <TuiJian class="man-top"></TuiJian>
-            <FenLei class="man-top"></FenLei>
-            <Dktj class="man-top"></Dktj>
-            <Jptj class="man-top"></Jptj>
-            <Bdtj class="man-top"></Bdtj>
+            <TuiJian class="man-top" v-for="list in items" :prop="list"></TuiJian>
+            <!--<FenLei class="man-top"></FenLei>-->
+            <!--<Dktj class="man-top"></Dktj>-->
+            <!--<Jptj class="man-top"></Jptj>-->
+            <!--<Bdtj class="man-top"></Bdtj>-->
         </div>
         <Footer class="footer index"></Footer>
     </div>
@@ -41,7 +41,9 @@
                     {html: 'slide2', style: {'background': '#4bbfc3'}},
                     {html: 'slide3', style: {'background': '#7baabe'}},
                     {html: 'slide4', style: {'background': '#a58'}}
-                ]
+                ],
+                items:[{name:"精品",id:3617},{name:"小说",id:521},{name:"音乐",id:523},{name:"相声小品",id:527},{name:"情感推荐",id:529},{name:"头条",id:545},{name:"儿童",id:1599},
+                    {name:"汽车",id:3385}]
             }
         }
     }

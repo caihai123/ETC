@@ -9,31 +9,31 @@
             <div>
                 <table cellspacing="0">
                     <tr>
-                        <td rowspan="2"><a class="tuijian">推荐</a></td>
-                        <td><a>小说</a></td>
-                        <td><a>出版精品</a></td>
+                        <td rowspan="2"><router-link to="/" class="tuijian">推荐</router-link></td>
+                        <td><router-link to="/xiaoshuo">小说</router-link></td>
+                        <td><router-link to="/jingpin">出版精品</router-link></td>
                         <td><a>电台</a></td>
                     </tr>
                     <tr>
-                        <td><a>相声小品</a></td>
-                        <td><a>头条</a></td>
+                        <td><router-link to="/xsxp">相声小品</router-link></td>
+                        <td><router-link to="/toutiao">头条</router-link></td>
                         <td><a>情感</a></td>
                     </tr>
                     <tr>
                         <td><a>精选电台</a></td>
-                        <td><a>儿童</a></td>
+                        <td><router-link to="/ertong">儿童</router-link></td>
                         <td><a>文化</a></td>
                         <td><a>戏曲</a></td>
                     </tr>
                     <tr>
-                        <td><a>音乐</a></td>
+                        <td><router-link to="/music">音乐</router-link></td>
                         <td><a>脱口秀</a></td>
                         <td><a>公开课</a></td>
-                        <td><a>外语</a></td>
+                        <td><router-link to="languages">外语</router-link></td>
                     </tr>
                     <tr>
                         <td><a>财经</a></td>
-                        <td><a>汽车</a></td>
+                        <td><router-link to="automobile">汽车</router-link></td>
                         <td><a>搞笑</a></td>
                         <td><a>影视</a></td>
                     </tr>

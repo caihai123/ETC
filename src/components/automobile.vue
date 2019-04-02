@@ -1,6 +1,6 @@
 <template>
     <div>
-        <heade class="header index" :prop="index"></heade>
+        <heade class="header index" :prop="index" name="汽车"></heade>
         <particulars class="main" :prop="datas"></particulars>
         <Footer class="index footer"></Footer>
     </div>
@@ -12,7 +12,7 @@
     import Footer from "./module/Footer"
     import Golbal from './module/Golbal.vue'
     export default {
-        name: "xiaoshuo",
+        name: "automobile",
         components:{
             heade,Footer,particulars
         },
@@ -27,20 +27,13 @@
                         {html: 'slide4', style: {'background': '#a58'}}
                     ],
                     fenlei:[
-                        {title:"穿越架空",id:""},
-                        {title:"青春校园",id:""},
-                        {title:"武侠仙侠",id:""},
-                        {title:"广播剧",id:""},
-                        {title:"推理刑侦",id:""},
-                        {title:"悬疑探险",id:""},
-                        {title:"惊悚异能",id:""},
-                        {title:"玄幻超能",id:""},
-                        {title:"古风言情",id:""},
-                        {title:"现代言情",id:""},
-                        {title:"现代都市",id:""},
-                        {title:"官商职场",id:""},
-                        {title:"历史军事",id:""},
-                        ],
+                        {title:"推荐",id:""},
+                        {title:"资讯",id:""},
+                        {title:"测评",id:""},
+                        {title:"导购",id:""},
+                        {title:"用车",id:""},
+                        {title:"扯车",id:""}
+                    ],
                     items:[]
                 }
             }
@@ -51,7 +44,7 @@
                 Golbal.gain(vm).then(function (data) {
                     vm.$axios.get("/api/media/v7/channelondemands",{
                         params: {
-                            category_id: 521
+                            category_id: 3385
                         },
                         headers:data
                     }).then(function (response){

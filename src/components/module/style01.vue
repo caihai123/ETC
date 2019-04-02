@@ -1,5 +1,5 @@
 <template>
-    <div class="style01">
+    <div class="style01" @click="playPage">
         <banner :prop="prop"></banner>
         <h4>{{prop.title}}</h4>
         <p>{{prop.description}}</p>
@@ -13,7 +13,18 @@
         components:{
             banner
         },
-        props:["prop"]
+        props:["prop"],
+        methods:{
+            playPage:function () {
+
+                this.$router.push({
+                    name:"playPage",
+                    params:{
+                        data:this.prop
+                    }
+                });
+            }
+        }
     }
 </script>
 

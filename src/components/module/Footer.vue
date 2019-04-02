@@ -1,10 +1,10 @@
 <template>
     <div class="footer">
         <div class="nav">
-            <div><a><img src="../../assets/fonts/icon04.jpg"/><span>听书</span></a></div>
-            <div><a @click="menu=true"><img src="../../assets/fonts/icon03.jpg"/><span>分类</span></a></div>
+            <div><router-link to="/"><img src="../../assets/fonts/icon04.jpg"/><span>首页</span></router-link></div>
+            <div><router-link to="/enshrine"><img src="../../assets/fonts/icon02.jpg"/><span>收藏</span></router-link></div>
             <div id="primary"><a><img src="../../assets/fonts/icon_img.png"/></a></div>
-            <div><a><img src="../../assets/fonts/icon02.jpg"/><span>听单</span></a></div>
+            <div><a @click="menu=true"><img src="../../assets/fonts/icon03.jpg"/><span>分类</span></a></div>
             <div><a><img src="../../assets/fonts/icon01.jpg"/><span>我的</span></a></div>
         </div>
         <transition name="fade">

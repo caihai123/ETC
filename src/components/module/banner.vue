@@ -14,7 +14,7 @@
 
 <style scoped>
     .banner{position: relative;box-sizing: border-box;}
-    .banner img{width: 100%;border-radius: 0.5rem;}
+    .banner img{width: 100%;height: 9rem;border-radius: 0.5rem;}
     .banner .span{
         width: 100%;
         height: 2rem;

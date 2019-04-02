@@ -20,10 +20,10 @@
 <script>
     export default {
         name: "heade",
-        props:["prop"],//是否是首页
+        props:["prop","name"],//是否是首页
         data:function f() {
             return {
-                title:"小说",
+                title:this.name ? this.name : "小说",
                 seek:false//是否出现搜索框
             }
         },

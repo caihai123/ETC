@@ -11,7 +11,7 @@
         name: "Nav",
         data(){
             return {
-                lists:[{id:"1",name:"听单",url:"./fonts/list1.png"},
+                lists:[{id:"1",name:"收藏",url:"./fonts/list1.png"},
                     {id:"2",name:"精品",url:"./fonts/list2.png"},
                     {id:"3",name:"榜单",url:"./fonts/list3.png"},
                     {id:"4",name:"大咖",url:"./fonts/list4.png"},

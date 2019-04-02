@@ -22,7 +22,7 @@
 
 <style scoped>
     .headline{width: 100%;overflow: hidden;}
-    .headline h3{height: 3rem;font-size: 1.333333rem;line-height: 3rem;display: inline-block;float: left;}
+    .headline h3{height: 3rem;font-size: 1rem;line-height: 3rem;display: inline-block;float: left;}
     .headline ul{overflow: hidden;display: inline-block;}
     .headline ul li{display: inline-block;height:3rem;line-height:3rem;font-size: 0.75rem;margin-left:1rem;color: #fd5050;}
     .headline>a{float: right;height:3rem;line-height:3rem;font-size: 1rem;color: #999999;}

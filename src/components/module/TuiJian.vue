@@ -12,12 +12,13 @@
     import Golbal from './Golbal.vue'
     export default {
         name: "TuiJian",
+        props:["prop"],
         components:{
             headline,style01
         },
         data:function () {
             return {
-                headline:{title:"精品推荐"},
+                headline:{title:this.prop.name},
                 items:[],
                 fragment:{
                     Start:0,
@@ -34,7 +35,7 @@
                 Golbal.gain(vm).then(function (data) {
                     vm.$axios.get("/api/media/v7/channelondemands",{
                         params: {
-                            category_id: 3617
+                            category_id: vm.prop.id
                         },
                         headers:data
                     }).then(function (response){
@@ -56,6 +57,6 @@
 <style scoped>
     .tuijian{width: 100%;padding:0 1.25rem;background:#fff;box-sizing: border-box;overflow: hidden;}
     .lists{display: flex;justify-content:flex-start;margin-bottom:1rem;flex-wrap:wrap;}
-    .list{width: 30%;}
-    .list:nth-child(3n+2){margin:0 5%;}
+    .list{width: 31%;}
+    .list:nth-child(3n+2){margin:0 3.5%;}
 </style>
