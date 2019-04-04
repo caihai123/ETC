@@ -42,8 +42,8 @@
                     {html: 'slide3', style: {'background': '#7baabe'}},
                     {html: 'slide4', style: {'background': '#a58'}}
                 ],
-                items:[{name:"精品",id:3617},{name:"小说",id:521},{name:"音乐",id:523},{name:"相声小品",id:527},{name:"情感推荐",id:529},{name:"头条",id:545},{name:"儿童",id:1599},
-                    {name:"汽车",id:3385}]
+                items:[{name:"小说",id:521},{name:"情感推荐",id:529},{name:"头条",id:545},{name:"儿童",id:1599},
+                    {name:"汽车",id:3385},{name:"精品",id:3617},{name:"音乐",id:523},{name:"相声小品",id:527}]
             }
         }
     }

@@ -1,12 +1,26 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition :name="transitionName">
+      <router-view class="child-view"></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
   name: 'app',
+  data () {
+    return {
+      transitionName: 'slide-left'
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      const toDepth = to.meta.index;
+      const fromDepth = from.meta.index;
+      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    }
+  }
 }
 </script>
 

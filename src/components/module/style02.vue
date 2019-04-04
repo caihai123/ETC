@@ -24,8 +24,8 @@
             playPage:function () {
                 this.$router.push({
                     name:"playPage",
-                    params:{
-                        data:this.prop
+                    query:{
+                        id:this.prop.id
                     }
                 });
             }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="datas!=null">
         <heade class="header index" :prop="index" :name="datas.categories[0].name"></heade>
         <div class="main">
             <div class="title">
@@ -9,7 +9,7 @@
                 </div>
                 <div class="tex">
                     <h4>{{datas.title}}</h4>
-                    <strong>播音：{{datas.podcasters[0].nickname}}</strong>
+                    <strong v-if="datas.podcasters">播音：{{datas.podcasters[0].nickname}}</strong>
                     <p>{{datas.description}}</p>
                 </div>
                 <rater :score="datas.star/2" :disabled="true" class="rate"/>
@@ -31,8 +31,8 @@
                     <a :class="{act:tbs}" @click="tbs=true">播放列表</a>
                     <a :class="{act:!tbs}" @click="tbs=false">相关推荐</a>
                 </div>
-                <jiemu v-if="tbs" :item="items"></jiemu>
-                <tuijian v-if="!tbs" :prop="datas.categories[0].id"></tuijian>
+                <jiemu v-if="tbs" :id="id" :int="int"></jiemu>
+                <tuijian v-if="!tbs" :prop="userid"></tuijian>
             </div>
         </div>
         <Footer class="index footer"></Footer>
@@ -54,29 +54,40 @@
         data:function () {
             return {
                 index:false,//是否是首页
-                items:[],//节目列表
                 tbs:true,
-                datas:this.$route.params.data
+                datas:null,//专辑id
+                id:this.$route.query.id,
             }
         },
         methods:{
-            initialize:function () {
+            initialize:function (id) {
                 let vm = this;
                 Golbal.gain(vm).then(function (data) {
-                    vm.$axios.get("/api/media/v7/channelondemands",{
-                        params: {
-                            channel_id: vm.datas.id
-                        },
+                    vm.$axios.get(`/api/media/v7/channelondemands/${id}`,{
                         headers:data
                     }).then(function (response){
-                        vm.items = response.data.data;
-                        console.log(response.data);
+                        vm.datas = response.data.data;
                     })
                 });
             }
         },
         mounted:function () {
-            this.initialize();
+            this.initialize(this.id);
+        },
+        watch: {
+            '$route' (to, from) {
+                this.initialize(to.query.id);
+                this.id = to.query.id;
+                this.tbs = true;
+            }
+        },
+        computed:{
+            userid:function () {
+                return this.datas.categories[0].id
+            },
+            int:function () {
+                return this.datas.program_count
+            }
         }
     }
 </script>
