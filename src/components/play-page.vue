@@ -31,8 +31,8 @@
                     <a :class="{act:tbs}" @click="tbs=true">播放列表</a>
                     <a :class="{act:!tbs}" @click="tbs=false">相关推荐</a>
                 </div>
-                <jiemu v-if="tbs" :id="id" :int="int"></jiemu>
-                <tuijian v-if="!tbs" :prop="userid"></tuijian>
+                <jiemu v-show="tbs" :id="id" :int="int"></jiemu>
+                <tuijian v-show="!tbs" :prop="userid"></tuijian>
             </div>
         </div>
         <Footer class="index footer"></Footer>

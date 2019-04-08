@@ -38,6 +38,7 @@
                 this.$router.go(-1);//返回上一层
             },
             select:function (id) {
+                this.seek = false;
                 this.$router.push({
                     name:"playPage",
                     query:{
