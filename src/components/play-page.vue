@@ -9,7 +9,7 @@
                 </div>
                 <div class="tex">
                     <h4>{{datas.title}}</h4>
-                    <strong v-if="datas.podcasters">播音：{{datas.podcasters[0].nickname}}</strong>
+                    <strong v-if="datas.podcasters.length">播音：{{datas.podcasters[0].nickname}}</strong>
                     <p>{{datas.description}}</p>
                 </div>
                 <rater :score="datas.star/2" :disabled="true" class="rate"/>
@@ -62,6 +62,7 @@
         methods:{
             initialize:function (id) {
                 let vm = this;
+                vm.datas = null;
                 Golbal.gain(vm).then(function (data) {
                     vm.$axios.get(`/api/media/v7/channelondemands/${id}`,{
                         headers:data

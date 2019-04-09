@@ -21,10 +21,8 @@
                 index:false, //是否是首页
                 datas:{//小说的所有数据
                     slideshow:[//轮播图数据
-                        {html: 'slide1', style: {'background': '#1bbc9b'}},
-                        {html: 'slide2', style: {'background': '#4bbfc3'}},
-                        {html: 'slide3', style: {'background': '#7baabe'}},
-                        {html: 'slide4', style: {'background': '#a58'}}
+                        {to:"", src: "./fonts/banner01.png"},
+                        {to:"", src: "./fonts/banner02.png"}
                     ],
                     fenlei:[
                         {title:"头条分类",id:""},

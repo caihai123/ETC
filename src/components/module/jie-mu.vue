@@ -3,8 +3,8 @@
         <div class="nav">
             <span>共{{int}}集</span>
             <a @click="selections=true">选集</a>
-            <div class="shade" v-show="selections" @click="selections=false"></div>
-            <div class="selections" v-show="selections">
+            <div class="shade" v-show="selections" @click="selections=false;" @touchmove.prevent @mousewheel.prevent></div>
+            <div class="selections" v-show="selections" @touchmove.prevent>
                 <h3>选集</h3>
                 <div class="links">
                     <a v-for="(list,index) in number" :key="index" @click="initialize(index+1);selections=false;" v-bind:class="{active: index+1==page}">{{index*30+1}}-{{(index*30+30)>int?int:(index*30+30)}}</a>
@@ -36,6 +36,7 @@
         methods:{
             initialize:function (page) {
                 let vm = this;
+                vm.items = [];
                 Golbal.gain(vm).then(function (data) {
                     vm.$axios.get(`/api/media/v7/channelondemands/${vm.id}/programs`,{
                         params:{
@@ -57,6 +58,10 @@
                 h = (h.length==1)?'0'+h:h;
                 s = (s.length==1)?'0'+s:s;
                 return h+':'+s;
+            },
+            touchstart:function (e) {
+                e.stopPropagation();
+                e.preventDefault();
             }
         },
         mounted:function () {
@@ -65,11 +70,8 @@
         computed:{
             number:function () {
                 var num;
-                if(this.int%30==0){
-                    num = Math.floor(this.int/30)
-                }else{
-                    num = Math.floor(this.int/30) + 1;
-                }
+                if(this.int%30==0){num = Math.floor(this.int/30)
+                }else{num = Math.floor(this.int/30) + 1;}
                 return num;
             }
         }
@@ -96,9 +98,9 @@
 
     .shade{width: 100%;height: 100%;position: fixed;top: 0;left: 0;background: #000000;opacity: 0.5;z-index:1000;}
     .selections{width: 90%;position: fixed;top: 50%;left: 50%;margin-top:-7rem;transform: translate(-50%);background: rgba(255,255,255,1);z-index: 1001;border-radius: 1rem;box-sizing: border-box;}
-    .selections h3{line-height: 2.5rem;padding-left: 1.25rem;font-size: 1.25rem;font-weight: 400;border-bottom: 1px solid #e6e6e6;}
+    .selections h3{line-height: 2.5rem;padding:0 1.25rem;font-size: 1.25rem;font-weight: 400;border-bottom: 1px solid #e6e6e6;}
     .selections h3:before{content:"";display: inline-block;width:0.25rem;height:1rem;background:#fd5050;margin-right:0.4rem;border-radius: 0.1rem;}
-    .selections .links{padding:0.5rem 1.25rem;display: flex;flex-wrap:wrap;justify-content:flex-start;}
+    .selections .links{max-height: 13rem;padding:0.5rem 1.25rem;display: flex;flex-wrap:wrap;justify-content:flex-start;overflow-y: auto;}
     .selections .links a{display: inline-block;width: 22%;height: 2.5rem;text-align: center;line-height: 2.5rem;;border: 1px solid #e7e7e7;margin-bottom: 1rem;border-radius: 1rem;font-size:1rem;color: #666666;box-sizing: border-box;}
     .selections .links a:nth-child(4n+1){margin-right: 4%;}
     .selections .links a:nth-child(4n+2){margin-right: 4%;}

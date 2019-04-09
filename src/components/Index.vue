@@ -37,10 +37,8 @@
             return {
                 index:true,//是否是首页
                 slideshow:[//轮播图数据
-                    {html: 'slide1', style: {'background': '#1bbc9b'}},
-                    {html: 'slide2', style: {'background': '#4bbfc3'}},
-                    {html: 'slide3', style: {'background': '#7baabe'}},
-                    {html: 'slide4', style: {'background': '#a58'}}
+                    {to:"/playPage?id=102974", src: "./fonts/banner01.png"},
+                    {to:"/playPage?id=119326", src: "./fonts/banner02.png"}
                 ],
                 items:[{name:"小说",id:521},{name:"情感推荐",id:529},{name:"头条",id:545},{name:"儿童",id:1599},
                     {name:"汽车",id:3385},{name:"精品",id:3617},{name:"音乐",id:523},{name:"相声小品",id:527}]
