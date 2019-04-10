@@ -76,7 +76,7 @@
             this.initialize(this.id);
         },
         watch: {
-            '$route' (to, from) {
+            '$route' (to) {
                 this.initialize(to.query.id);
                 this.id = to.query.id;
                 this.tbs = true;

@@ -47,7 +47,6 @@
                         headers:data
                     }).then(function (response){
                         vm.datas.items = response.data.data;
-                        console.log(vm.datas.items);
                     })
                 });
             }

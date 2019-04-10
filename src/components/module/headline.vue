@@ -2,7 +2,7 @@
     <div class="headline">
         <h3>{{prop.title}}</h3>
         <ul v-if="prop.list">
-            <li v-for="list of prop.list"><a>{{list}}</a></li>
+            <li v-for="(list,index) of prop.list" :key="index"><a>{{list}}</a></li>
         </ul>
         <a v-on:click="InABatch">换一批</a>
     </div>

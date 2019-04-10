@@ -16,7 +16,6 @@
         props:["prop"],
         methods:{
             playPage:function () {
-
                 this.$router.push({
                     name:"playPage",
                     query:{

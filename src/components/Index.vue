@@ -2,15 +2,10 @@
     <div>
         <heade class="header index" :prop="index"></heade>
         <div class="main">
-            <!--<Tabs></Tabs>-->
             <slider :prop="slideshow"></slider>
             <subiject></subiject>
             <Nav></Nav>
-            <TuiJian class="man-top" v-for="list in items" :prop="list"></TuiJian>
-            <!--<FenLei class="man-top"></FenLei>-->
-            <!--<Dktj class="man-top"></Dktj>-->
-            <!--<Jptj class="man-top"></Jptj>-->
-            <!--<Bdtj class="man-top"></Bdtj>-->
+            <TuiJian class="man-top" v-for="(list,index) in items" :prop="list" :key="index"></TuiJian>
         </div>
         <Footer class="footer index"></Footer>
     </div>
@@ -19,19 +14,14 @@
 <script>
     import heade from "./module/header"
     import Footer from "./module/Footer"
-    import Tabs from "./module/Tabs"
     import slider from "./module/slider"
     import subiject from "./module/subject"
     import Nav from "./module/Nav"
-    import FenLei from "./module/FenLei"
     import TuiJian from "./module/TuiJian"
-    import Dktj from "./module/DKTJ"
-    import Jptj from "./module/Jptj"
-    import Bdtj from "./module/Bdtj"
     export default {
         name: "Index",
         components:{
-            heade,Tabs,slider,subiject,Nav,FenLei,TuiJian,Dktj,Jptj,Bdtj,Footer
+            heade,slider,subiject,Nav,TuiJian,Footer
         },
         data:function () {
             return {

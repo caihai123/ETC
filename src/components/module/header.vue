@@ -14,7 +14,7 @@
             <a class="getback" @click="seek=false"></a>
             <h2><input autofocus="autofocus" v-model="value"/></h2>
             <ul v-if="lists.length>0">
-                <li v-for="list in lists"><a @click="select(list.id)">{{list.title}}</a></li>
+                <li v-for="list in lists" :key="list.id"><a @click="select(list.id)">{{list.title}}</a></li>
             </ul>
         </div>
     </div>

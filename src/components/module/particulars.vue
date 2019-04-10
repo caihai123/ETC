@@ -9,12 +9,12 @@
             <div class="box2">
                 <a class="active">全部</a>
                 <ul>
-                    <li v-for="list of prop.fenlei"><a>{{list.title}}</a></li>
+                    <li v-for="(list,index) of prop.fenlei" :key="index"><a>{{list.title}}</a></li>
                 </ul>
             </div>
         </div>
         <div>
-            <list v-for="list in prop.items" :prop="list"></list>
+            <list v-for="(list,index) in prop.items" :prop="list" :key="index"></list>
         </div>
     </div>
 </template>

@@ -10,7 +10,7 @@
                 <span class="che">全选</span>
             </div>
             <div style="margin-top: 4rem;">
-                <div class="list" v-for="(item,index) in items">
+                <div class="list" v-for="(item,index) in items" :key="index">
                     <div class="index"><i>{{index+1}}</i></div>
                     <div class="img"><img :src="item.thumbs.small_thumb"/></div>
                     <div class="text">
