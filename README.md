@@ -1,5 +1,6 @@
 # vue-etc
-
+## 预览地址
+### http://118.178.90.53:8081/#/
 ## Project setup
 ```
 npm install
